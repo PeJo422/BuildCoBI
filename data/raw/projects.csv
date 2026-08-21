@@ -1,0 +1,13 @@
+project_id,project_name,customer_id,project_manager_id,city,project_type,start_date,end_date,budget_amount,status
+P-1001,Kontorsombyggnad Lindholmen,C101,E01,Göteborg,Ombyggnad,2025-01-13,2025-06-27,4200000,Avslutad
+P-1002,Skolkök Sjöbo,C102,E10,Borås,Renovering,2025-02-03,2025-09-12,2650000,Avslutad
+P-1003,Villa Kolla Parkstad,C103,E01,Kungsbacka,Nyproduktion,2025-03-10,2025-11-28,3800000,Avslutad
+P-1004,Lagerhall Stallbacka,C104,E10,Trollhättan,Nyproduktion,2025-04-07,2026-02-27,6400000,Avslutad
+P-1005,Stambyte Ekliden hus A,C105,E01,Mölndal,Renovering,2025-05-05,2025-12-19,2950000,Avslutad
+P-1006,Fasadrenovering Alingsås,C106,E10,Alingsås,Renovering,2025-08-18,2026-01-30,980000,Avslutad
+P-1007,Vårdcentral Angered etapp 1,C107,E01,Göteborg,Ombyggnad,2025-09-01,2026-04-24,5100000,Avslutad
+P-1008,Butiksanpassning Partille,C108,E10,Partille,Ombyggnad,2025-10-06,2026-03-13,1450000,Avslutad
+P-1009,Stambyte Ekliden hus B,C105,E01,Mölndal,Renovering,2026-01-12,2026-06-26,3100000,Avslutad
+P-1010,Kontorsombyggnad etapp 2,C101,E10,Göteborg,Ombyggnad,2026-02-02,,2200000,Pågående
+P-1011,Garage Kungsbacka,C103,E01,Kungsbacka,Nyproduktion,2026-03-02,,750000,Pågående
+P-1012,Vårdcentral Angered etapp 2,C107,E10,Göteborg,Ombyggnad,2026-05-04,,4600000,Pågående

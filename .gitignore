@@ -1,0 +1,10 @@
+# Power BI-filer är binära och blir tunga i Git
+*.pbix
+*.pbit
+
+# lokalt
+.DS_Store
+*.bak
+*.log
+.venv/
+__pycache__/

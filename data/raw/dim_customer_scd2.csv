@@ -1,0 +1,12 @@
+customer_sk,customer_id,customer_name,contact_name,city,segment,valid_from,valid_to,is_current
+1001,C101,Nordvik Fastigheter AB,Lars Nordvik,Mölndal,Företag,2024-01-01,2025-08-31,false
+1002,C101,Nordvik Fastigheter AB,Lars Nordvik,Göteborg,Företag,2025-09-01,,true
+1003,C102,Kommunfastigheter Väst,Anna Bergqvist,Borås,Offentlig,2024-01-01,,true
+1004,C103,Svensk Villaservice AB,Ida Andersson,Kungsbacka,Företag,2024-01-01,2026-05-31,false
+1005,C103,Svensk Villaservice AB,Ida Svensson,Kungsbacka,Företag,2026-06-01,,true
+1006,C104,Hallberg Industri AB,Peter Hallberg,Trollhättan,Företag,2024-01-01,,true
+1007,C105,BRF Ekliden,Marie Sjögren,Mölndal,Förening,2024-01-01,,true
+1008,C106,Karlssons Åkeri AB,Jonas Karlsson,Alingsås,Privat,2024-01-01,2025-03-31,false
+1009,C106,Karlssons Åkeri AB,Jonas Karlsson,Alingsås,Företag,2025-04-01,,true
+1010,C107,Region Väst Fastighet,Henrik Lund,Göteborg,Offentlig,2024-01-01,,true
+1011,C108,Almgren Handel AB,Sofia Almgren,Partille,Företag,2024-01-01,,true

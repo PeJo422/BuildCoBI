@@ -1,0 +1,163 @@
+cost_id,project_id,cost_date,cost_type,supplier,amount,voucher_no,is_reversed
+K90008,P-1001,2025-01-17,Maskinhyra,Cramo,60480.0,V2025-0008,false
+K90001,P-1001,2025-01-20,Material,Beijer Byggmaterial,441820.0,V2025-0001,false
+K90012,P-1001,2025-02-03,Övrigt,Byggsäkerhet AB,53060.0,V2025-0012,false
+K90009,P-1001,2025-02-05,Maskinhyra,Ramirent,88420.0,V2025-0009,false
+K90024,P-1002,2025-02-05,Övrigt,Renova,55530.0,V2025-0024,false
+K90013,P-1001,2025-02-17,Övrigt,Securitas,73390.0,V2025-0013,false
+K90010,P-1001,2025-02-21,Maskinhyra,Cramo,93120.0,V2025-0010,false
+K90005,P-1001,2025-02-25,Underentreprenör,VVS Väst AB,451630.0,V2025-0005,false
+K90016,P-1002,2025-02-28,Material,Optimera,592780.0,V2025-0016,false
+K90002,P-1001,2025-03-03,Material,Optimera,429740.0,V2025-0002,false
+K90006,P-1001,2025-03-18,Underentreprenör,Målericentrum AB,247540.0,V2025-0006,false
+K90020,P-1002,2025-03-18,Maskinhyra,Ramirent,80750.0,V2025-0020,false
+K90003,P-1001,2025-03-25,Material,Ahlsell,324350.0,V2025-0003,false
+K90011,P-1001,2025-03-25,Maskinhyra,Cramo,91270.0,V2025-0011,false
+K90025,P-1002,2025-03-27,Övrigt,Renova,33420.0,V2025-0025,false
+K90026,P-1002,2025-04-16,Övrigt,Securitas,34800.0,V2025-0026,false
+K90034,P-1003,2025-04-16,Maskinhyra,Cramo,91310.0,V2025-0034,false
+K90018,P-1002,2025-04-21,Underentreprenör,Golvteam Göteborg,458200.0,V2025-0018,false
+K90041,P-1004,2025-04-25,Material,Ahlsell,1229710.0,V2025-0041,false
+K90014,P-1001,2025-04-28,Övrigt,Securitas,50240.0,V2025-0014,false
+K90021,P-1002,2025-05-06,Maskinhyra,Hyrmaskiner Väst,53220.0,V2025-0021,false
+K90007,P-1001,2025-05-08,Underentreprenör,VVS Väst AB,234030.0,V2025-0007,false
+K90004,P-1001,2025-05-13,Material,Optimera,637160.0,V2025-0004,false
+K90022,P-1002,2025-05-13,Maskinhyra,Hyrmaskiner Väst,72000.0,V2025-0022,false
+K90038,P-1003,2025-05-13,Övrigt,Renova,48190.0,V2025-0038,false
+K90015,P-1001,2025-05-26,Övrigt,Renova,56610.0,V2025-0015,false
+K90053,P-1005,2025-05-30,Material,Beijer Byggmaterial,639400.0,V2025-0050,false
+K90023,P-1002,2025-06-06,Maskinhyra,Cramo,47670.0,V2025-0023,false
+K90019,P-1002,2025-06-12,Underentreprenör,Målericentrum AB,251990.0,V2025-0019,false
+K90028,P-1003,2025-06-17,Material,Optimera,472110.0,V2025-0028,false
+K90039,P-1003,2025-06-23,Övrigt,Renova,80360.0,V2025-0039,false
+K90056,P-1005,2025-06-26,Underentreprenör,Målericentrum AB,197900.0,V2025-0053,false
+K90059,P-1005,2025-06-27,Maskinhyra,Cramo,44090.0,V2025-0056,false
+K90017,P-1002,2025-07-17,Material,Optimera,802240.0,V2025-0017,false
+K90064,P-1005,2025-07-22,Övrigt,Renova,28980.0,V2025-0061,false
+K90040,P-1003,2025-07-30,Övrigt,Renova,65890.0,V2025-0040,false
+K90050,P-1004,2025-07-30,Övrigt,Securitas,151910.0,V2025-0049,false
+K90054,P-1005,2025-08-01,Material,Ahlsell,337590.0,V2025-0051,false
+K90060,P-1005,2025-08-01,Maskinhyra,Hyrmaskiner Väst,32250.0,V2025-0057,false
+K90061,P-1005,2025-08-04,Maskinhyra,Hyrmaskiner Väst,36380.0,V2025-0058,false
+K90042,P-1004,2025-08-08,Material,Optimera,976990.0,V2025-0042,false
+K90035,P-1003,2025-08-11,Maskinhyra,Ramirent,74550.0,V2025-0035,false
+K90055,P-1005,2025-08-13,Material,Woody Bygghandel,354110.0,V2025-0052,false
+K90027,P-1002,2025-08-14,Övrigt,Renova,53790.0,V2025-0027,false
+K90036,P-1003,2025-08-18,Maskinhyra,Cramo,62920.0,V2025-0036,false
+K90031,P-1003,2025-08-25,Underentreprenör,VVS Väst AB,245820.0,V2025-0031,false
+K90044,P-1004,2025-09-05,Underentreprenör,Målericentrum AB,540170.0,V2025-0043,false
+K90047,P-1004,2025-09-08,Maskinhyra,Ramirent,202160.0,V2025-0046,false
+K90077,P-1007,2025-09-08,Material,Optimera,997650.0,V2025-0073,false
+K90045,P-1004,2025-09-11,Underentreprenör,Målericentrum AB,594070.0,V2025-0044,false
+K90070,P-1006,2025-09-11,Underentreprenör,Målericentrum AB,109110.0,V2025-0067,false
+K90065,P-1005,2025-09-12,Övrigt,Securitas,36030.0,V2025-0062,false
+K90072,P-1006,2025-09-12,Maskinhyra,Hyrmaskiner Väst,40970.0,V2025-0069,false
+K90029,P-1003,2025-09-16,Material,Beijer Byggmaterial,360280.0,V2025-0029,false
+K90068,P-1006,2025-09-17,Material,Ahlsell,407740.0,V2025-0065,false
+K90048,P-1004,2025-09-22,Maskinhyra,Cramo,217380.0,V2025-0047,false
+K90066,P-1005,2025-09-23,Övrigt,Renova,52290.0,V2025-0063,false
+K90032,P-1003,2025-09-24,Underentreprenör,Golvteam Göteborg,269070.0,V2025-0032,false
+K90037,P-1003,2025-09-24,Maskinhyra,Cramo,48990.0,V2025-0037,false
+K90057,P-1005,2025-09-29,Underentreprenör,Plåtslageriet i Borås,239000.0,V2025-0054,false
+K90062,P-1005,2025-10-01,Maskinhyra,Ramirent,60930.0,V2025-0059,false
+K90090,P-1008,2025-10-06,Underentreprenör,Plåtslageriet i Borås,58630.0,V2025-0078,false
+K90099,P-1008,2025-10-08,Övrigt,Renova,17110.0,V2025-0085,false
+K90100,P-1008,2025-10-14,Övrigt,Byggsäkerhet AB,14640.0,V2025-0086,false
+K90030,P-1003,2025-10-15,Material,Woody Bygghandel,695340.0,V2025-0030,false
+K90087,P-1008,2025-10-15,Material,Woody Bygghandel,283920.0,V2025-0077,false
+K90091,P-1008,2025-10-15,Underentreprenör,Golvteam Göteborg,57220.0,V2025-0079,false
+K90095,P-1008,2025-10-21,Maskinhyra,Ramirent,45600.0,V2025-0082,false
+K90063,P-1005,2025-10-27,Maskinhyra,Cramo,68380.0,V2025-0060,false
+K90033,P-1003,2025-10-29,Underentreprenör,Golvteam Göteborg,262870.0,V2025-0033,false
+K90073,P-1006,2025-11-13,Maskinhyra,Ramirent,30510.0,V2025-0070,false
+K90046,P-1004,2025-11-17,Underentreprenör,Golvteam Göteborg,691390.0,V2025-0045,false
+K90058,P-1005,2025-11-26,Underentreprenör,Målericentrum AB,240750.0,V2025-0055,false
+K90092,P-1008,2025-11-26,Underentreprenör,VVS Väst AB,89450.0,V2025-0080,false
+K90101,P-1008,2025-11-28,Övrigt,Byggsäkerhet AB,23600.0,V2025-0087,false
+K90079,P-1007,2025-12-01,Underentreprenör,Målericentrum AB,552540.0,V2025-0075,false
+K90093,P-1008,2025-12-02,Underentreprenör,Målericentrum AB,78210.0,V2025-0081,false
+K90096,P-1008,2025-12-03,Maskinhyra,Hyrmaskiner Väst,35740.0,V2025-0083,false
+K90049,P-1004,2025-12-04,Maskinhyra,Hyrmaskiner Väst,232470.0,V2025-0048,false
+K90083,P-1007,2025-12-04,Övrigt,Byggsäkerhet AB,45410.0,V2025-0076,false
+K90097,P-1008,2025-12-08,Maskinhyra,Cramo,25940.0,V2025-0084,false
+K90069,P-1006,2025-12-09,Material,Woody Bygghandel,180210.0,V2025-0066,false
+K90102,P-1008,2025-12-12,Övrigt,Securitas,14570.0,V2025-0088,false
+K90067,P-1005,2025-12-17,Övrigt,Renova,52110.0,V2025-0064,false
+K90074,P-1006,2025-12-17,Maskinhyra,Cramo,35410.0,V2025-0071,false
+K90071,P-1006,2025-12-23,Underentreprenör,Målericentrum AB,190210.0,V2025-0068,false
+K90078,P-1007,2025-12-23,Material,Woody Bygghandel,1116600.0,V2025-0074,false
+K90075,P-1006,2025-12-26,Övrigt,Renova,44020.0,V2025-0072,false
+K90076,P-1006,2026-01-01,Övrigt,Byggsäkerhet AB,30810.0,V2026-0004,false
+K90084,P-1007,2026-01-07,Övrigt,Byggsäkerhet AB,84850.0,V2026-0008,false
+K90081,P-1007,2026-01-08,Maskinhyra,Hyrmaskiner Väst,147390.0,V2026-0006,false
+K90080,P-1007,2026-01-12,Underentreprenör,VVS Väst AB,523800.0,V2026-0005,false
+K90109,P-1009,2026-01-16,Maskinhyra,Cramo,86020.0,V2026-0021,false
+K90051,P-1004,2026-01-20,Övrigt,Renova,99790.0,V2026-0002,false
+K90161,P-1004,2026-01-20,Övrigt,Renova,99790.0,V2026-0002,false
+K90094,P-1008,2026-01-22,Underentreprenör,VVS Väst AB,84280.0,V2026-0013,false
+K90103,P-1008,2026-01-23,Övrigt,Securitas,22030.0,V2026-0015,false
+K90088,P-1008,2026-01-29,Material,Beijer Byggmaterial,257930.0,V2026-0011,false
+K90043,P-1004,2026-02-02,Material,Ahlsell,1379370.0,V2026-0001,false
+K90160,P-1004,2026-02-02,Material,Ahlsell,1379370.0,V2026-0001,false
+K90120,P-1010,2026-02-04,Underentreprenör,Golvteam Göteborg,37280.0,V2026-0032,false
+K90125,P-1010,2026-02-04,Maskinhyra,Ramirent,13060.0,V2026-0037,false
+K90052,P-1004,2026-02-05,Övrigt,Byggsäkerhet AB,204710.0,V2026-0003,false
+K90162,P-1004,2026-02-05,Övrigt,Byggsäkerhet AB,204710.0,V2026-0003,false
+K90110,P-1009,2026-02-09,Maskinhyra,Cramo,63240.0,V2026-0022,false
+K90098,P-1008,2026-02-10,Maskinhyra,Cramo,24070.0,V2026-0014,false
+K90112,P-1009,2026-02-10,Övrigt,Renova,70450.0,V2026-0024,false
+K90121,P-1010,2026-02-11,Underentreprenör,VVS Väst AB,31360.0,V2026-0033,false
+K90082,P-1007,2026-02-18,Maskinhyra,Hyrmaskiner Väst,237020.0,V2026-0007,false
+K90115,P-1010,2026-02-18,Material,Ahlsell,74580.0,V2026-0027,false
+K90126,P-1010,2026-02-23,Maskinhyra,Cramo,10030.0,V2026-0038,false
+K90089,P-1008,2026-02-24,Material,Woody Bygghandel,180600.0,V2026-0012,false
+K90085,P-1007,2026-02-27,Övrigt,Byggsäkerhet AB,81750.0,V2026-0009,false
+K90127,P-1010,2026-03-03,Maskinhyra,Hyrmaskiner Väst,8910.0,V2026-0039,false
+K90140,P-1011,2026-03-10,Maskinhyra,Hyrmaskiner Väst,4920.0,V2026-0052,false
+K90104,P-1009,2026-03-18,Material,Woody Bygghandel,763200.0,V2026-0016,false
+K90106,P-1009,2026-03-18,Underentreprenör,VVS Väst AB,274960.0,V2026-0018,false
+K90111,P-1009,2026-03-26,Maskinhyra,Cramo,91880.0,V2026-0023,false
+K90122,P-1010,2026-04-06,Underentreprenör,Golvteam Göteborg,21910.0,V2026-0034,false
+K90086,P-1007,2026-04-08,Övrigt,Byggsäkerhet AB,57070.0,V2026-0010,false
+K90130,P-1010,2026-04-13,Övrigt,Renova,8720.0,V2026-0042,false
+K90145,P-1011,2026-04-13,Övrigt,Securitas,8530.0,V2026-0057,false
+K90105,P-1009,2026-04-15,Material,Woody Bygghandel,563060.0,V2026-0017,false
+K90134,P-1011,2026-04-15,Material,Beijer Byggmaterial,51730.0,V2026-0046,false
+K90116,P-1010,2026-04-16,Material,Optimera,72400.0,V2026-0028,false
+K90107,P-1009,2026-04-20,Underentreprenör,Plåtslageriet i Borås,166900.0,V2026-0019,false
+K90131,P-1010,2026-04-21,Övrigt,Renova,14280.0,V2026-0043,false
+K90113,P-1009,2026-05-13,Övrigt,Byggsäkerhet AB,33510.0,V2026-0025,false
+K90147,P-1012,2026-05-19,Material,Beijer Byggmaterial,174360.0,V2026-0059,false
+K90135,P-1011,2026-05-21,Material,Beijer Byggmaterial,23770.0,V2026-0047,false
+K90117,P-1010,2026-05-26,Material,Woody Bygghandel,59190.0,V2026-0029,false
+K90155,P-1012,2026-05-26,Övrigt,Byggsäkerhet AB,8340.0,V2026-0067,false
+K90108,P-1009,2026-05-28,Underentreprenör,VVS Väst AB,233330.0,V2026-0020,false
+K90151,P-1012,2026-06-04,Maskinhyra,Cramo,16740.0,V2026-0063,false
+K90141,P-1011,2026-06-05,Maskinhyra,Ramirent,7650.0,V2026-0053,false
+K90152,P-1012,2026-06-05,Maskinhyra,Cramo,19720.0,V2026-0064,false
+K90128,P-1010,2026-06-08,Maskinhyra,Hyrmaskiner Väst,13020.0,V2026-0040,false
+K90156,P-1012,2026-06-08,Övrigt,Renova,10870.0,V2026-0068,false
+K90157,P-1012,2026-06-08,Övrigt,Securitas,14650.0,V2026-0069,false
+K90146,P-1011,2026-06-09,Övrigt,Byggsäkerhet AB,11690.0,V2026-0058,false
+K90132,P-1010,2026-06-11,Övrigt,Securitas,9620.0,V2026-0044,false
+K90133,P-1010,2026-06-12,Övrigt,Byggsäkerhet AB,8760.0,V2026-0045,false
+K90138,P-1011,2026-06-22,Underentreprenör,Plåtslageriet i Borås,45150.0,V2026-0050,false
+K90142,P-1011,2026-06-22,Maskinhyra,Hyrmaskiner Väst,6790.0,V2026-0054,false
+K90114,P-1009,2026-06-25,Övrigt,Securitas,64840.0,V2026-0026,false
+K90123,P-1010,2026-06-25,Underentreprenör,Målericentrum AB,43310.0,V2026-0035,false
+K90143,P-1011,2026-06-25,Maskinhyra,Ramirent,3870.0,V2026-0055,false
+K90148,P-1012,2026-06-26,Material,Woody Bygghandel,205140.0,V2026-0060,false
+K90124,P-1010,2026-07-01,Underentreprenör,Målericentrum AB,31650.0,V2026-0036,false
+K90153,P-1012,2026-07-16,Maskinhyra,Cramo,19220.0,V2026-0065,false
+K90158,P-1012,2026-07-16,Övrigt,Securitas,7370.0,V2026-0070,false
+K90159,P-1012,2026-07-16,Övrigt,Securitas,7060.0,V2026-0071,false
+K90136,P-1011,2026-07-21,Material,Woody Bygghandel,32610.0,V2026-0048,false
+K90139,P-1011,2026-07-22,Underentreprenör,Målericentrum AB,35730.0,V2026-0051,false
+K90129,P-1010,2026-07-29,Maskinhyra,Cramo,14080.0,V2026-0041,false
+K90118,P-1010,2026-08-06,Material,Woody Bygghandel,48530.0,V2026-0030,false
+K90149,P-1012,2026-08-10,Underentreprenör,VVS Väst AB,115770.0,V2026-0061,false
+K90137,P-1011,2026-08-12,Material,Ahlsell,50760.0,V2026-0049,false
+K90144,P-1011,2026-08-17,Maskinhyra,Cramo,5650.0,V2026-0056,false
+K90119,P-1010,2026-08-18,Material,Woody Bygghandel,70420.0,V2026-0031,false
+K90150,P-1012,2026-08-18,Underentreprenör,Golvteam Göteborg,77430.0,V2026-0062,false
+K90154,P-1012,2026-08-19,Maskinhyra,Cramo,13320.0,V2026-0066,false

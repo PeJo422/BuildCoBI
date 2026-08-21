@@ -1,0 +1,11 @@
+employee_id,first_name,last_name,role,department,hourly_cost,hourly_rate,employment_start,is_active
+E01,Marcus,Ek,Projektledare,Projekt,720,1150,2018-08-13,true
+E02,Sara,Lindqvist,Platschef,Produktion,680,1050,2019-02-04,true
+E03,Johan,Persson,Snickare,Produktion,520,845,2017-05-22,true
+E04,Emil,Håkansson,Snickare,Produktion,510,845,2021-09-06,true
+E05,Nina,Öberg,Elektriker,Installation,590,975,2020-03-16,true
+E06,Ali,Rahimi,Elektriker,Installation,575,975,2022-01-10,true
+E07,Tobias,Grahn,Kalkylator,Kalkyl,640,980,2019-11-25,true
+E08,Lovisa,Berg,Snickare,Produktion,505,845,2023-04-03,true
+E09,Kent,Molin,Maskinförare,Produktion,560,920,2016-06-01,false
+E10,Amanda,Ström,Projektledare,Projekt,700,1150,2022-08-15,true

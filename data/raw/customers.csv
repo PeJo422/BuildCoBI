@@ -1,0 +1,9 @@
+customer_id,customer_name,org_number,contact_name,city,segment,created_date
+C101,Nordvik Fastigheter AB,556213-4471,Lars Nordvik,Göteborg,Företag,2019-03-12
+C102,Kommunfastigheter Väst,212000-1355,Anna Bergqvist,Borås,Offentlig,2018-01-05
+C103,Svensk Villaservice AB,556904-2213,Ida Svensson,Kungsbacka,Företag,2021-06-30
+C104,Hallberg Industri AB,556117-8890,Peter Hallberg,Trollhättan,Företag,2017-11-02
+C105,BRF Ekliden,769621-4402,Marie Sjögren,Mölndal,Förening,2022-02-14
+C106,Karlssons Åkeri AB,556788-1120,Jonas Karlsson,Alingsås,Företag,2020-09-01
+C107,Region Väst Fastighet,232100-0131,Henrik Lund,Göteborg,Offentlig,2016-04-20
+C108,Almgren Handel AB,556344-9982,Sofia Almgren,Partille,Företag,2023-01-16
