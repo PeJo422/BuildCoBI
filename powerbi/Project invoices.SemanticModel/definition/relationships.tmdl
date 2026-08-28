@@ -1,0 +1,47 @@
+relationship 29d0cc3e-466f-4e25-86ae-6298cc800675
+	joinOnDateBehavior: datePartOnly
+	fromColumn: customers.created_date
+	toColumn: LocalDateTable_740068dc-0983-4c4b-9b74-6d7b3e41cb39.Date
+
+relationship 9ed7e753-e1a0-43ad-a785-6de4321ae336
+	joinOnDateBehavior: datePartOnly
+	fromColumn: projects.start_date
+	toColumn: LocalDateTable_ca635c04-88ee-4150-9fc2-d98ae2f5aa91.Date
+
+relationship d7401cc8-f0e6-4aa1-8b38-fe2f7340d5ae
+	joinOnDateBehavior: datePartOnly
+	fromColumn: projects.end_date
+	toColumn: LocalDateTable_2723f81c-4dc8-458f-a03b-41a517ed4af5.Date
+
+relationship 32e34b0f-97cd-4a55-b3b3-6391b1706b5e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: project_costs.cost_date
+	toColumn: LocalDateTable_47814214-5b5b-422e-98f1-f22784bbb3a7.Date
+
+relationship AutoDetected_53c93219-990d-4c9d-bbde-a496d663f9d8
+	fromColumn: invoices.customer_id
+	toColumn: customers.customer_id
+
+relationship AutoDetected_66bf8456-c3ee-4834-a3f2-4c25fcf89f0b
+	isActive: false
+	fromColumn: invoices.project_id
+	toColumn: projects.project_id
+
+relationship 417ad9d3-8c37-46a9-a9d9-702ae6acd8c9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_customer_scd2.valid_from
+	toColumn: LocalDateTable_fbb0c59a-d3bf-49cd-a54c-d207a9016cc8.Date
+
+relationship a1e14bd5-df4b-4c84-8e5f-e3a0853505bf
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_customer_scd2.valid_to
+	toColumn: LocalDateTable_fcfb8e0e-a831-4c7d-ba5a-65c34d1ff4a0.Date
+
+relationship AutoDetected_ded0eb5c-92d7-4f31-b91d-60419867dfa9
+	fromColumn: dim_customer_scd2.customer_id
+	toColumn: customers.customer_id
+
+relationship 480be34f-1c58-8b1f-e557-a7b73b4fd0c3
+	fromColumn: project_costs.project_id
+	toColumn: projects.project_id
+
