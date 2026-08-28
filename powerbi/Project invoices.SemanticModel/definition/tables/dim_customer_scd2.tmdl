@@ -1,5 +1,4 @@
 table dim_customer_scd2
-	isHidden
 	lineageTag: e7159b59-d021-4549-a360-b9bd91088971
 
 	column customer_sk
@@ -7,82 +6,57 @@ table dim_customer_scd2
 		isHidden
 		formatString: 0
 		lineageTag: 5984929b-3c92-4657-9788-30603e4d5f58
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: customer_sk
-
-		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
 	column customer_id
 		dataType: string
-		isHidden
 		lineageTag: 0dcb2bda-f3cc-41fd-9089-10c8b7156641
 		summarizeBy: none
 		sourceColumn: customer_id
-
-		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
 	column customer_name
 		dataType: string
-		isHidden
 		lineageTag: dfc021d2-3c0a-4132-9f05-7d3d43ac4d61
 		summarizeBy: none
 		sourceColumn: customer_name
-
-		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
 	column contact_name
 		dataType: string
-		isHidden
 		lineageTag: 192d5b60-f5f1-4cc4-a49a-b1e82f3214fa
 		summarizeBy: none
 		sourceColumn: contact_name
-
-		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
 	column city
 		dataType: string
-		isHidden
 		lineageTag: 72a15c68-db6c-4619-a79a-1954d7361b20
 		summarizeBy: none
 		sourceColumn: city
-
-		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
 	column segment
 		dataType: string
-		isHidden
 		lineageTag: 3101c251-3516-4ec3-8f42-18a4797dc214
 		summarizeBy: none
 		sourceColumn: segment
-
-		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
 	column valid_from
 		dataType: dateTime
-		isHidden
-		formatString: Long Date
+		formatString: Short Date
 		lineageTag: 49c69d2e-df51-46b2-be00-befda2f478a5
 		summarizeBy: none
 		sourceColumn: valid_from
-
-		variation Variation
-			isDefault
-			relationship: 417ad9d3-8c37-46a9-a9d9-702ae6acd8c9
-			defaultHierarchy: LocalDateTable_fbb0c59a-d3bf-49cd-a54c-d207a9016cc8.Datumhierarki
-
-		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -90,18 +64,10 @@ table dim_customer_scd2
 
 	column valid_to
 		dataType: dateTime
-		isHidden
-		formatString: Long Date
+		formatString: Short Date
 		lineageTag: 47da6251-6e1c-4222-a37e-956e6c32a2d1
 		summarizeBy: none
 		sourceColumn: valid_to
-
-		variation Variation
-			isDefault
-			relationship: a1e14bd5-df4b-4c84-8e5f-e3a0853505bf
-			defaultHierarchy: LocalDateTable_fcfb8e0e-a831-4c7d-ba5a-65c34d1ff4a0.Datumhierarki
-
-		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -109,13 +75,10 @@ table dim_customer_scd2
 
 	column is_current
 		dataType: boolean
-		isHidden
 		formatString: """TRUE"";""TRUE"";""FALSE"""
 		lineageTag: 09b778bf-cd3d-40ee-b059-00900494b9b4
 		summarizeBy: none
 		sourceColumn: is_current
-
-		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -125,11 +88,9 @@ table dim_customer_scd2
 				let
 				    Källa = Csv.Document(File.Contents("C:\repos\BuildCoBI\data\raw\dim_customer_scd2.csv"),[Delimiter=",", Columns=9, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 				    #"Upphöjda rubriker" = Table.PromoteHeaders(Källa, [PromoteAllScalars=true]),
-				    #"Ändrad typ" = Table.TransformColumnTypes(#"Upphöjda rubriker",{{"customer_sk", Int64.Type}, {"customer_id", type text}, {"customer_name", type text}, {"contact_name", type text}, {"city", type text}, {"segment", type text}, {"valid_from", type date}, {"valid_to", type date}, {"is_current", type logical}})
+				    #"Ändrad typ" = Table.TransformColumnTypes(#"Upphöjda rubriker",{{"customer_sk", Int64.Type}, {"customer_id", type text}, {"customer_name", type text}, {"contact_name", type text}, {"city", type text}, {"segment", type text}, {"valid_from", type date}, {"valid_to", type date}, {"is_current", type logical}}, "en-US")
 				in
 				    #"Ändrad typ"
-
-	changedProperty = IsHidden
 
 	annotation PBI_ResultType = Table
 

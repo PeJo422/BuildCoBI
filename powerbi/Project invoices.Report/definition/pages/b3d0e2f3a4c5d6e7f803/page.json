@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "b3d0e2f3a4c5d6e7f803",
+  "displayName": "Kund & segment",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280
+}

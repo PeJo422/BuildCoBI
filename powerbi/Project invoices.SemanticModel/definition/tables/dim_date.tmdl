@@ -1,0 +1,58 @@
+table dim_date
+	lineageTag: 3a1d0c11-0d21-4a71-9f01-1a2b3c4d5e60
+
+	column Date
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 3a1d0c11-0d21-4a71-9f01-1a2b3c4d5e61
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column År = YEAR([Date])
+		dataType: int64
+		formatString: 0
+		lineageTag: 3a1d0c11-0d21-4a71-9f01-1a2b3c4d5e62
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column MånadNr = MONTH([Date])
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 3a1d0c11-0d21-4a71-9f01-1a2b3c4d5e63
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Månad = FORMAT([Date], "MMM")
+		dataType: string
+		lineageTag: 3a1d0c11-0d21-4a71-9f01-1a2b3c4d5e64
+		summarizeBy: none
+		sortByColumn: MånadNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column ÅrMånad = FORMAT([Date], "yyyy-MM")
+		dataType: string
+		lineageTag: 3a1d0c11-0d21-4a71-9f01-1a2b3c4d5e65
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Kvartal = "Kv" & INT((MONTH([Date]) + 2) / 3)
+		dataType: string
+		lineageTag: 3a1d0c11-0d21-4a71-9f01-1a2b3c4d5e66
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_date = calculated
+		mode: import
+		source = CALENDAR(DATE(2025, 1, 1), DATE(2026, 12, 31))
+
+	annotation PBI_ResultType = Table
+

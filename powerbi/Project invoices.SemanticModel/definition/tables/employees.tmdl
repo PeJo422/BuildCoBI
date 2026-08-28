@@ -1,0 +1,100 @@
+table employees
+	lineageTag: 5c013636-7948-449b-af59-d4ec313830d9
+
+	column employee_id
+		dataType: string
+		lineageTag: 4902efa4-214f-4966-927b-e0d26da2fe58
+		summarizeBy: none
+		sourceColumn: employee_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column first_name
+		dataType: string
+		lineageTag: 53b165e6-e0ab-4677-b4a0-75639fbada38
+		summarizeBy: none
+		sourceColumn: first_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_name
+		dataType: string
+		lineageTag: ea2f01a7-06ac-4e67-9f6a-c61ce78f93e7
+		summarizeBy: none
+		sourceColumn: last_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column namn = employees[first_name] & " " & employees[last_name]
+		dataType: string
+		lineageTag: b1f4a8c0-3d2e-4a11-9c77-2e1a4b5c6d70
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column role
+		dataType: string
+		lineageTag: 8fc4dffb-539b-4954-bf46-675124c04b77
+		summarizeBy: none
+		sourceColumn: role
+
+		annotation SummarizationSetBy = Automatic
+
+	column department
+		dataType: string
+		lineageTag: 66234d71-aa06-4746-9bd1-8cac493c4c6d
+		summarizeBy: none
+		sourceColumn: department
+
+		annotation SummarizationSetBy = Automatic
+
+	column hourly_cost
+		dataType: int64
+		formatString: 0
+		lineageTag: 4d210175-8543-495c-ad13-26f9f0e284ca
+		summarizeBy: none
+		sourceColumn: hourly_cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column hourly_rate
+		dataType: int64
+		formatString: 0
+		lineageTag: dc748605-87d8-46ee-9610-eb0469b44edc
+		summarizeBy: none
+		sourceColumn: hourly_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column employment_start
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 96549cbc-0460-4090-8632-cea9ae65edba
+		summarizeBy: none
+		sourceColumn: employment_start
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column is_active
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 73dc2e0d-4556-45c1-9844-deb6c23d31e4
+		summarizeBy: none
+		sourceColumn: is_active
+
+		annotation SummarizationSetBy = Automatic
+
+	partition employees = m
+		mode: import
+		source =
+				let
+				    Källa = Csv.Document(File.Contents("C:\repos\BuildCoBI\data\raw\employees.csv"),[Delimiter=",", Columns=9, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Upphöjda rubriker" = Table.PromoteHeaders(Källa, [PromoteAllScalars=true]),
+				    #"Ändrad typ" = Table.TransformColumnTypes(#"Upphöjda rubriker",{{"employee_id", type text}, {"first_name", type text}, {"last_name", type text}, {"role", type text}, {"department", type text}, {"hourly_cost", Int64.Type}, {"hourly_rate", Int64.Type}, {"employment_start", type date}, {"is_active", type logical}}, "en-US")
+				in
+				    #"Ändrad typ"
+
+	annotation PBI_ResultType = Table
+

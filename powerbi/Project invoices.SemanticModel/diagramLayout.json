@@ -10,47 +10,47 @@
       "nodes": [
         {
           "location": {
-            "x": 0,
-            "y": 26
+            "x": 40,
+            "y": 40
           },
-          "nodeIndex": "customers",
-          "nodeLineageTag": "25b26aa9-dca8-474e-91d5-b4d58fef722f",
+          "nodeIndex": "dim_date",
+          "nodeLineageTag": "3a1d0c11-0d21-4a71-9f01-1a2b3c4d5e60",
           "size": {
-            "height": 248,
+            "height": 200,
             "width": 234
           },
           "zIndex": 0
         },
         {
           "location": {
-            "x": 672.33333333333337,
-            "y": 30
+            "x": 460,
+            "y": 40
           },
           "nodeIndex": "projects",
           "nodeLineageTag": "3f99195c-44f6-4ebf-b97e-8bd893d7e1ab",
           "size": {
-            "height": 300,
+            "height": 320,
             "width": 234
           },
           "zIndex": 0
         },
         {
           "location": {
-            "x": 808,
-            "y": 460.66666666666669
+            "x": 900,
+            "y": 40
           },
-          "nodeIndex": "project_costs",
-          "nodeLineageTag": "6b5e7092-dd1c-4e2c-a96d-9a85a36e8397",
+          "nodeIndex": "dim_customer_scd2",
+          "nodeLineageTag": "e7159b59-d021-4549-a360-b9bd91088971",
           "size": {
-            "height": 272,
+            "height": 296,
             "width": 234
           },
           "zIndex": 0
         },
         {
           "location": {
-            "x": 397,
-            "y": 450.66666666666669
+            "x": 40,
+            "y": 460
           },
           "nodeIndex": "invoices",
           "nodeLineageTag": "ab91eab4-becb-408f-9370-ca6f8cf1aad8",
@@ -62,13 +62,52 @@
         },
         {
           "location": {
-            "x": 1136,
-            "y": 2
+            "x": 340,
+            "y": 460
           },
-          "nodeIndex": "dim_customer_scd2",
-          "nodeLineageTag": "e7159b59-d021-4549-a360-b9bd91088971",
+          "nodeIndex": "project_costs",
+          "nodeLineageTag": "6b5e7092-dd1c-4e2c-a96d-9a85a36e8397",
           "size": {
-            "height": 296,
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 640,
+            "y": 460
+          },
+          "nodeIndex": "timesheets",
+          "nodeLineageTag": "c82f5fa0-a88b-4f76-b21a-e64900189d3b",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 940,
+            "y": 460
+          },
+          "nodeIndex": "employees",
+          "nodeLineageTag": "5c013636-7948-449b-af59-d4ec313830d9",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1240,
+            "y": 40
+          },
+          "nodeIndex": "_Mått",
+          "nodeLineageTag": "7b2e0c22-1e32-4b82-8a10-2b3c4d5e6f70",
+          "size": {
+            "height": 260,
             "width": 234
           },
           "zIndex": 0
