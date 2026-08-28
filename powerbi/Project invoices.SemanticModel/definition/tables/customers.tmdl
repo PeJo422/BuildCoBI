@@ -1,0 +1,79 @@
+table customers
+	lineageTag: 25b26aa9-dca8-474e-91d5-b4d58fef722f
+
+	column customer_id
+		dataType: string
+		lineageTag: 7d2c54a7-42c9-41d1-819d-6f1e77918cd2
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_name
+		dataType: string
+		lineageTag: bdbe84e7-e4c2-4333-aec0-cda08502d0ce
+		summarizeBy: none
+		sourceColumn: customer_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column org_number
+		dataType: string
+		lineageTag: 833d4d60-4a2d-4e91-bb5b-1200cd6865c4
+		summarizeBy: none
+		sourceColumn: org_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column contact_name
+		dataType: string
+		lineageTag: b61f4b66-81fa-495a-a091-20b38d51882c
+		summarizeBy: none
+		sourceColumn: contact_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: 5c99aa4f-2a54-4a77-9dcf-b5514990adfe
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column segment
+		dataType: string
+		lineageTag: 55c4b682-3397-41e4-bfd2-681d0bf942a4
+		summarizeBy: none
+		sourceColumn: segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 783060c1-80a1-481a-b7ea-07ac0b55da09
+		summarizeBy: none
+		sourceColumn: created_date
+
+		variation Variation
+			isDefault
+			relationship: 29d0cc3e-466f-4e25-86ae-6298cc800675
+			defaultHierarchy: LocalDateTable_740068dc-0983-4c4b-9b74-6d7b3e41cb39.Datumhierarki
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition customers = m
+		mode: import
+		source =
+				let
+				    Källa = Csv.Document(File.Contents("C:\repos\BuildCoBI\data\raw\customers.csv"),[Delimiter=",", Columns=7, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Upphöjda rubriker" = Table.PromoteHeaders(Källa, [PromoteAllScalars=true]),
+				    #"Ändrad typ" = Table.TransformColumnTypes(#"Upphöjda rubriker",{{"customer_id", type text}, {"customer_name", type text}, {"org_number", type text}, {"contact_name", type text}, {"city", type text}, {"segment", type text}, {"created_date", type date}})
+				in
+				    #"Ändrad typ"
+
+	annotation PBI_ResultType = Table
+

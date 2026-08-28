@@ -1,0 +1,88 @@
+table project_costs
+	lineageTag: 6b5e7092-dd1c-4e2c-a96d-9a85a36e8397
+
+	column cost_id
+		dataType: string
+		lineageTag: f1860190-426a-48b9-94ed-db775b26f02a
+		summarizeBy: none
+		sourceColumn: cost_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		lineageTag: 53664036-59b7-4975-b1b2-5de95d65bf54
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: befbfb3d-ea9d-4ea4-a30e-442799b2c4e9
+		summarizeBy: none
+		sourceColumn: cost_date
+
+		variation Variation
+			isDefault
+			relationship: 32e34b0f-97cd-4a55-b3b3-6391b1706b5e
+			defaultHierarchy: LocalDateTable_47814214-5b5b-422e-98f1-f22784bbb3a7.Datumhierarki
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column cost_type
+		dataType: string
+		lineageTag: 38cca507-bd0c-40bd-a850-c35f39992f2d
+		summarizeBy: none
+		sourceColumn: cost_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column supplier
+		dataType: string
+		lineageTag: 1f883d72-71c0-4c89-a431-f6ed0e8ccaf5
+		summarizeBy: none
+		sourceColumn: supplier
+
+		annotation SummarizationSetBy = Automatic
+
+	column amount
+		dataType: string
+		lineageTag: 34ea899e-526e-4104-aa2a-11555bb54bd7
+		summarizeBy: none
+		sourceColumn: amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column voucher_no
+		dataType: string
+		lineageTag: bb8ceb0c-3cc8-4d56-bfab-e677befb940e
+		summarizeBy: none
+		sourceColumn: voucher_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_reversed
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 348f135a-62b2-4d6a-ac27-5e18d5e32d8a
+		summarizeBy: none
+		sourceColumn: is_reversed
+
+		annotation SummarizationSetBy = Automatic
+
+	partition project_costs = m
+		mode: import
+		source =
+				let
+				    Källa = Csv.Document(File.Contents("C:\repos\BuildCoBI\data\raw\project_costs.csv"),[Delimiter=",", Columns=8, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Upphöjda rubriker" = Table.PromoteHeaders(Källa, [PromoteAllScalars=true]),
+				    #"Ändrad typ" = Table.TransformColumnTypes(#"Upphöjda rubriker",{{"cost_id", type text}, {"project_id", type text}, {"cost_date", type date}, {"cost_type", type text}, {"supplier", type text}, {"amount", type text}, {"voucher_no", type text}, {"is_reversed", type logical}})
+				in
+				    #"Ändrad typ"
+
+	annotation PBI_ResultType = Table
+

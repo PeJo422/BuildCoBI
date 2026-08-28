@@ -42,6 +42,7 @@ FROM projects p
 JOIN invoices i      ON i.project_id = p.project_id
 JOIN project_costs c ON c.project_id = p.project_id;
 ```
+svar: 3 rader
 
 7. Rita på papper vad som hände med ett enskilt projekt. Ta P-1006, som har få
    rader:

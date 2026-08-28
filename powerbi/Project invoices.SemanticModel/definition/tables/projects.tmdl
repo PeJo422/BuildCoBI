@@ -1,0 +1,112 @@
+table projects
+	lineageTag: 3f99195c-44f6-4ebf-b97e-8bd893d7e1ab
+
+	column project_id
+		dataType: string
+		lineageTag: 5d1aa6a8-682d-4e8b-8f86-b3e235744f77
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_name
+		dataType: string
+		lineageTag: 7cd3e98e-f52f-4297-bff3-426ec763eb3f
+		summarizeBy: none
+		sourceColumn: project_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: string
+		lineageTag: adfe008f-3c74-48cf-b202-94d2f9c6e64f
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_manager_id
+		dataType: string
+		lineageTag: a424e1ba-b7b7-4c1a-a8ac-6c791c9a6164
+		summarizeBy: none
+		sourceColumn: project_manager_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: aa78fbbf-fc8e-43af-a884-2c92c9e50a3f
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_type
+		dataType: string
+		lineageTag: 449adc61-e55b-4c32-a480-45a6520a7104
+		summarizeBy: none
+		sourceColumn: project_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column start_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5f4145b7-80f6-403c-a7fa-f04b08f4825e
+		summarizeBy: none
+		sourceColumn: start_date
+
+		variation Variation
+			isDefault
+			relationship: 9ed7e753-e1a0-43ad-a785-6de4321ae336
+			defaultHierarchy: LocalDateTable_ca635c04-88ee-4150-9fc2-d98ae2f5aa91.Datumhierarki
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column end_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 49b604dd-9fe9-473e-aea3-cebc63acb570
+		summarizeBy: none
+		sourceColumn: end_date
+
+		variation Variation
+			isDefault
+			relationship: d7401cc8-f0e6-4aa1-8b38-fe2f7340d5ae
+			defaultHierarchy: LocalDateTable_2723f81c-4dc8-458f-a03b-41a517ed4af5.Datumhierarki
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column budget_amount
+		dataType: int64
+		formatString: 0
+		lineageTag: 9d20f424-0817-4f91-a155-4bd42831aa65
+		summarizeBy: sum
+		sourceColumn: budget_amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column status
+		dataType: string
+		lineageTag: fc5148b5-897a-4871-9018-487e910ffe05
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition projects = m
+		mode: import
+		source =
+				let
+				    Källa = Csv.Document(File.Contents("C:\repos\BuildCoBI\data\raw\projects.csv"),[Delimiter=",", Columns=10, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Upphöjda rubriker" = Table.PromoteHeaders(Källa, [PromoteAllScalars=true]),
+				    #"Ändrad typ" = Table.TransformColumnTypes(#"Upphöjda rubriker",{{"project_id", type text}, {"project_name", type text}, {"customer_id", type text}, {"project_manager_id", type text}, {"city", type text}, {"project_type", type text}, {"start_date", type date}, {"end_date", type date}, {"budget_amount", Int64.Type}, {"status", type text}})
+				in
+				    #"Ändrad typ"
+
+	annotation PBI_ResultType = Table
+
