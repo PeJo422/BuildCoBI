@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "d1matrix",
   "position": {
-    "x": 196,
-    "y": 492,
-    "z": 5,
-    "height": 204,
-    "width": 520,
-    "tabOrder": 5
+    "x": 196.22707248027606,
+    "y": 522.81478751737893,
+    "z": 5000,
+    "height": 172.89937854905443,
+    "width": 520.07035293723516,
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "pivotTable",

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "ed353db11e122c711550",
+  "position": {
+    "x": 1074.9386045293886,
+    "y": 0,
+    "z": 1004,
+    "height": 112.19897892394293,
+    "width": 845.11166383034424,
+    "tabOrder": 1004
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "projects"
+                    }
+                  },
+                  "Property": "status"
+                }
+              },
+              "queryRef": "projects.status",
+              "nativeQueryRef": "status"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

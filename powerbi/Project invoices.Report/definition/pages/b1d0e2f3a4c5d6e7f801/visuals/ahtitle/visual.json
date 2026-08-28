@@ -2,14 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "ahtitle",
   "position": {
-    "width": 900,
-    "y": 16,
-    "z": 903,
     "x": 196,
-    "tabOrder": 903,
-    "height": 28
+    "y": 16,
+    "z": 12000,
+    "height": 28,
+    "width": 900,
+    "tabOrder": 12000
   },
   "visual": {
+    "visualType": "textbox",
     "objects": {
       "general": [
         {
@@ -18,13 +19,13 @@
               {
                 "textRuns": [
                   {
+                    "value": "Projektekonomi",
                     "textStyle": {
                       "color": "#FFFFFF",
                       "fontFamily": "Segoe UI",
                       "fontWeight": "700",
                       "fontSize": "17pt"
-                    },
-                    "value": "Projektekonomi"
+                    }
                   }
                 ]
               }
@@ -86,7 +87,6 @@
           }
         }
       ]
-    },
-    "visualType": "textbox"
+    }
   }
 }

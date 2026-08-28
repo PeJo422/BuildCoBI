@@ -2,14 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "ehsub",
   "position": {
-    "width": 900,
-    "y": 44,
-    "z": 904,
     "x": 196,
-    "tabOrder": 904,
-    "height": 16
+    "y": 44,
+    "z": 10000,
+    "height": 16,
+    "width": 900,
+    "tabOrder": 10000
   },
   "visual": {
+    "visualType": "textbox",
     "objects": {
       "general": [
         {
@@ -18,13 +19,13 @@
               {
                 "textRuns": [
                   {
+                    "value": "Vad skulle en BI-utvecklare reagera pa?",
                     "textStyle": {
                       "color": "#898781",
                       "fontFamily": "Segoe UI",
                       "fontWeight": "400",
                       "fontSize": "9pt"
-                    },
-                    "value": "Vad skulle en BI-utvecklare reagera pa?"
+                    }
                   }
                 ]
               }
@@ -86,7 +87,6 @@
           }
         }
       ]
-    },
-    "visualType": "textbox"
+    }
   }
 }

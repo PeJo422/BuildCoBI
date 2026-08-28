@@ -2,14 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "ewmsub",
   "position": {
-    "width": 160,
-    "y": 46,
-    "z": 902,
-    "x": 12,
-    "tabOrder": 902,
-    "height": 16
+    "x": 12.349955610646745,
+    "y": 46.655387862443263,
+    "z": 8000,
+    "height": 75.47195095395233,
+    "width": 159.17720564833581,
+    "tabOrder": 8000
   },
   "visual": {
+    "visualType": "textbox",
     "objects": {
       "general": [
         {
@@ -18,13 +19,12 @@
               {
                 "textRuns": [
                   {
+                    "value": "Projekt-BI",
                     "textStyle": {
-                      "color": "#898781",
                       "fontFamily": "Segoe UI",
-                      "fontWeight": "400",
-                      "fontSize": "8pt"
-                    },
-                    "value": "Projekt-BI"
+                      "fontSize": "16pt",
+                      "color": "#898781"
+                    }
                   }
                 ]
               }
@@ -86,7 +86,6 @@
           }
         }
       ]
-    },
-    "visualType": "textbox"
+    }
   }
 }

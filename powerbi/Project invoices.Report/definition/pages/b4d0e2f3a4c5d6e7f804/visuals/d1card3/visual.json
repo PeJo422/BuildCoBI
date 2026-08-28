@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "d1card3",
   "position": {
-    "x": 966.04097221058987,
-    "y": 16.466607480862326,
-    "z": 3,
-    "height": 142.71059816747351,
+    "x": 728.647381028158,
+    "y": 107.03294862560513,
+    "z": 2000,
+    "height": 97.4274275951021,
     "width": 260.72128511365349,
-    "tabOrder": 3
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "card",
@@ -126,23 +126,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "5da5d448f1d1f625ead3",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Mått"
-              }
-            },
-            "Property": "Personalkostnad"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

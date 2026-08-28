@@ -2,16 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "e1cardKred",
   "position": {
-    "width": 220,
-    "y": 76,
-    "z": 2,
-    "x": 1044,
-    "tabOrder": 2,
-    "height": 92
+    "x": 1019.5574465233924,
+    "y": 16.466607480862326,
+    "z": 2000,
+    "height": 128.98842526675489,
+    "width": 219.5547664114977,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "card",
-    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
         "Values": {
@@ -27,13 +26,28 @@
                   "Property": "Fakturerat (endast aktuell kundversion)"
                 }
               },
+              "queryRef": "_Mått.Fakturerat (endast aktuell kundversion)",
               "nativeQueryRef": "Fakturerat (endast aktuell kundversion)",
-              "active": true,
-              "queryRef": "_Mått.Fakturerat (endast aktuell kundversion)"
+              "active": true
             }
           ]
         }
       }
+    },
+    "objects": {
+      "categoryLabels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "visualContainerObjects": {
       "title": [
@@ -85,6 +99,7 @@
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

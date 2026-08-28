@@ -2,16 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "d1barEmp",
   "position": {
+    "x": 200.34372435049164,
+    "y": 208.57702809092279,
+    "z": 3000,
+    "height": 300,
     "width": 520,
-    "y": 180,
-    "z": 4,
-    "x": 196,
-    "tabOrder": 4,
-    "height": 300
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "clusteredBarChart",
-    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
         "Category": {
@@ -27,9 +26,9 @@
                   "Property": "namn"
                 }
               },
+              "queryRef": "employees.namn",
               "nativeQueryRef": "namn",
-              "active": true,
-              "queryRef": "employees.namn"
+              "active": true
             }
           ]
         },
@@ -46,9 +45,9 @@
                   "Property": "Timmar"
                 }
               },
+              "queryRef": "_Mått.Timmar",
               "nativeQueryRef": "Timmar",
-              "active": true,
-              "queryRef": "_Mått.Timmar"
+              "active": true
             }
           ]
         }
@@ -121,6 +120,7 @@
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

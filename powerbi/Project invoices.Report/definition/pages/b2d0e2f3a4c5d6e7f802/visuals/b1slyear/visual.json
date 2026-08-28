@@ -2,16 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "b1slyear",
   "position": {
-    "width": 328,
-    "y": 208,
-    "z": 3,
     "x": 936,
-    "tabOrder": 3,
-    "height": 110
+    "y": 208,
+    "z": 3000,
+    "height": 110,
+    "width": 328,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "slicer",
-    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
         "Values": {
@@ -27,13 +26,14 @@
                   "Property": "År"
                 }
               },
+              "queryRef": "dim_date.År",
               "nativeQueryRef": "År",
-              "active": true,
-              "queryRef": "dim_date.År"
+              "active": true
             }
           ]
         }
       }
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

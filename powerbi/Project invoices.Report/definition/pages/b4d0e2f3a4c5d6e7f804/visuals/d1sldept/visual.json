@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "d1sldept",
   "position": {
-    "x": 1136,
-    "y": 492,
-    "z": 7,
-    "height": 204,
-    "width": 128,
-    "tabOrder": 7
+    "x": 1136.1959161795005,
+    "y": 522.81478751737893,
+    "z": 7000,
+    "height": 172.89937854905443,
+    "width": 127.61620797668303,
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "slicer",
@@ -42,23 +42,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "7c359b67974f490096e0",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "employees"
-              }
-            },
-            "Property": "department"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

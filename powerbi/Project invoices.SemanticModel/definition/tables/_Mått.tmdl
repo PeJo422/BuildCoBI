@@ -77,6 +77,45 @@ table _Mått
 		formatString: #,0
 		lineageTag: 7b2e0c22-1e32-4b82-8a10-2b3c4d5e6f8a
 
+	measure materialkostnad = CALCULATE([Kostnad],KEEPFILTERS(project_costs[cost_type]="material"))
+		lineageTag: 0d205b32-cd8a-488f-aa9b-e4615c73f7f2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Maskinhyra = CALCULATE([Kostnad],KEEPFILTERS(project_costs[cost_type]="Maskinhyra"))
+		lineageTag: 7d709c1f-5e83-4582-ab6b-2e499f6c3a66
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure UE = CALCULATE([Kostnad],KEEPFILTERS(project_costs[cost_type]="Underentreprenör"))
+		lineageTag: 232e22bb-6bfe-45f5-a7e5-4535f3591544
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Övrigt = ```
+			CALCULATE([Kostnad],KEEPFILTERS(project_costs[cost_type]="övrigt")) 
+			```
+		lineageTag: 0451dbe1-aae6-42b1-9e4b-5c9a4ebec147
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Procent = DIVIDE([Kostnad],CALCULATE([Kostnad], ALL(project_costs[cost_type] )))
+		formatString: 0\ %;-0\ %;0\ %
+		lineageTag: a1a487f3-b1d9-41a7-8290-28515e3b08b2
+
+	measure 'cost mot budget' = DIVIDE([Total Kostnad],[Budget])
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: b51e3b48-a7fa-490e-94d6-0d0b9b72453a
+
+	measure 'personal mot budget' = DIVIDE([Personalkostnad],[Budget])
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 94ada3f9-104d-4fed-aab4-37a3c0c2a18a
+
+	measure 'kvar av budget' = ([Budget]-[Total kostnad])
+		lineageTag: b010c156-63d1-41b0-bfd9-faf6457f329b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column Value
 		dataType: int64
 		isHidden

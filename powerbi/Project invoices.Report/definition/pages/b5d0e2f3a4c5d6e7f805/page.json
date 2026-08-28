@@ -4,5 +4,10 @@
   "displayName": "Datakvalitet",
   "displayOption": "FitToPage",
   "height": 720,
-  "width": 1280
+  "width": 1280,
+  "pageBinding": {
+    "name": "203940f179ab99276c4f",
+    "type": "Default",
+    "parameters": []
+  }
 }

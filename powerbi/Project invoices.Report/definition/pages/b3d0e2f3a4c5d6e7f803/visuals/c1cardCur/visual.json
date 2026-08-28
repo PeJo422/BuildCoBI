@@ -2,16 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "c1cardCur",
   "position": {
-    "width": 168,
-    "y": 76,
-    "z": 3,
     "x": 1096,
-    "tabOrder": 3,
-    "height": 92
+    "y": 76,
+    "z": 3000,
+    "height": 92,
+    "width": 168,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "card",
-    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
         "Values": {
@@ -27,9 +26,9 @@
                   "Property": "Fakturerat (endast aktuell kundversion)"
                 }
               },
+              "queryRef": "_Mått.Fakturerat (endast aktuell kundversion)",
               "nativeQueryRef": "Fakturerat (endast aktuell kundversion)",
-              "active": true,
-              "queryRef": "_Mått.Fakturerat (endast aktuell kundversion)"
+              "active": true
             }
           ]
         }
@@ -85,6 +84,7 @@
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "e1tHours",
   "position": {
-    "x": 812,
-    "y": 180,
-    "z": 3,
-    "height": 196,
-    "width": 452,
-    "tabOrder": 3
+    "x": 727.97250859106521,
+    "y": 0,
+    "z": 3000,
+    "height": 391.47766323024052,
+    "width": 536.63230240549831,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "tableEx",
@@ -17,18 +17,45 @@
           "projections": [
             {
               "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Mått"
+                    }
+                  },
+                  "Property": "Timmar"
+                }
+              },
+              "queryRef": "_Mått.Timmar",
+              "nativeQueryRef": "Timmar"
+            },
+            {
+              "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "timesheets"
+                      "Entity": "employees"
                     }
                   },
-                  "Property": "timesheet_id"
+                  "Property": "hourly_cost"
                 }
               },
-              "queryRef": "timesheets.timesheet_id",
-              "nativeQueryRef": "timesheet_id",
-              "active": true
+              "queryRef": "employees.hourly_cost",
+              "nativeQueryRef": "hourly_cost"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "employees"
+                    }
+                  },
+                  "Property": "hourly_rate"
+                }
+              },
+              "queryRef": "employees.hourly_rate",
+              "nativeQueryRef": "hourly_rate"
             },
             {
               "field": {
@@ -42,74 +69,18 @@
                 }
               },
               "queryRef": "projects.project_name",
-              "nativeQueryRef": "project_name",
-              "active": false
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "employees"
-                    }
-                  },
-                  "Property": "namn"
-                }
-              },
-              "queryRef": "employees.namn",
-              "nativeQueryRef": "namn",
-              "active": false
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "timesheets"
-                    }
-                  },
-                  "Property": "work_date"
-                }
-              },
-              "queryRef": "timesheets.work_date",
-              "nativeQueryRef": "work_date",
-              "active": false
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Mått"
-                    }
-                  },
-                  "Property": "Timmar"
-                }
-              },
-              "queryRef": "_Mått.Timmar",
-              "nativeQueryRef": "Timmar",
-              "active": false
+              "nativeQueryRef": "project_name"
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "_Mått"
-                  }
-                },
-                "Property": "Timmar"
-              }
-            },
-            "direction": "Descending"
-          }
-        ]
       }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
+      ]
     },
     "visualContainerObjects": {
       "title": [
@@ -151,6 +122,19 @@
                 }
               }
             },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "lockAspect": [
+        {
+          "properties": {
             "show": {
               "expr": {
                 "Literal": {

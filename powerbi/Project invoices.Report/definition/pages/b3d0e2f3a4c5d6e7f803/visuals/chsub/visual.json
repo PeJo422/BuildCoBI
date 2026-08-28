@@ -2,14 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "chsub",
   "position": {
-    "width": 900,
-    "y": 44,
-    "z": 904,
     "x": 196,
-    "tabOrder": 904,
-    "height": 16
+    "y": 44,
+    "z": 12000,
+    "height": 16,
+    "width": 900,
+    "tabOrder": 12000
   },
   "visual": {
+    "visualType": "textbox",
     "objects": {
       "general": [
         {
@@ -18,13 +19,13 @@
               {
                 "textRuns": [
                   {
+                    "value": "SCD2: vilken kundversion gallde nar fakturan stalldes ut?",
                     "textStyle": {
                       "color": "#898781",
                       "fontFamily": "Segoe UI",
                       "fontWeight": "400",
                       "fontSize": "9pt"
-                    },
-                    "value": "SCD2: vilken kundversion gallde nar fakturan stalldes ut?"
+                    }
                   }
                 ]
               }
@@ -86,7 +87,6 @@
           }
         }
       ]
-    },
-    "visualType": "textbox"
+    }
   }
 }
