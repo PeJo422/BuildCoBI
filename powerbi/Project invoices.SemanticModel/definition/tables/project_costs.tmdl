@@ -24,11 +24,6 @@ table project_costs
 		summarizeBy: none
 		sourceColumn: cost_date
 
-		variation Variation
-			isDefault
-			relationship: 32e34b0f-97cd-4a55-b3b3-6391b1706b5e
-			defaultHierarchy: LocalDateTable_47814214-5b5b-422e-98f1-f22784bbb3a7.Datumhierarki
-
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
@@ -50,12 +45,15 @@ table project_costs
 		annotation SummarizationSetBy = Automatic
 
 	column amount
-		dataType: string
+		dataType: double
+		formatString: #,0
 		lineageTag: 34ea899e-526e-4104-aa2a-11555bb54bd7
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: amount
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column voucher_no
 		dataType: string
@@ -74,15 +72,39 @@ table project_costs
 
 		annotation SummarizationSetBy = Automatic
 
+	column customer_sk
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 32f6ed8d-af63-4b98-a3c2-c239c4b70868
+		summarizeBy: none
+		sourceColumn: customer_sk
+
+		annotation SummarizationSetBy = Automatic
+
 	partition project_costs = m
 		mode: import
 		source =
 				let
 				    Källa = Csv.Document(File.Contents("C:\repos\BuildCoBI\data\raw\project_costs.csv"),[Delimiter=",", Columns=8, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 				    #"Upphöjda rubriker" = Table.PromoteHeaders(Källa, [PromoteAllScalars=true]),
-				    #"Ändrad typ" = Table.TransformColumnTypes(#"Upphöjda rubriker",{{"cost_id", type text}, {"project_id", type text}, {"cost_date", type date}, {"cost_type", type text}, {"supplier", type text}, {"amount", type text}, {"voucher_no", type text}, {"is_reversed", type logical}})
+				    #"Ändrad typ" = Table.TransformColumnTypes(#"Upphöjda rubriker",{{"cost_id", type text}, {"project_id", type text}, {"cost_date", type date}, {"cost_type", type text}, {"supplier", type text}, {"amount", type number}, {"voucher_no", type text}, {"is_reversed", type logical}}, "en-US"),
+				    #"Borttagna dubbletter" = Table.Distinct(#"Ändrad typ", {"voucher_no", "cost_date", "supplier", "amount"}),
+				    ProjektBuffer = Table.Buffer(projects),
+				    DimBuffer = Table.Buffer(dim_customer_scd2),
+				    #"Tillagd customer_id" = Table.AddColumn(#"Borttagna dubbletter", "customer_id", (rad) =>
+				        try Table.SelectRows(ProjektBuffer, (p) => p[project_id] = rad[project_id]){0}[customer_id] otherwise null, type text),
+				    #"Tillagd customer_sk" = Table.AddColumn(#"Tillagd customer_id", "customer_sk", (rad) =>
+				        let
+				            Träffar = Table.SelectRows(DimBuffer, (d) =>
+				                d[customer_id] = rad[customer_id]
+				                and rad[cost_date] >= d[valid_from]
+				                and (d[valid_to] = null or rad[cost_date] <= d[valid_to]))
+				        in
+				            try Träffar{0}[customer_sk] otherwise null, Int64.Type),
+				    #"Borttagen customer_id" = Table.RemoveColumns(#"Tillagd customer_sk", {"customer_id"})
 				in
-				    #"Ändrad typ"
+				    #"Borttagen customer_id"
 
 	annotation PBI_ResultType = Table
 

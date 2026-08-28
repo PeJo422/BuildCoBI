@@ -1,12 +1,6 @@
 table invoices
 	lineageTag: ab91eab4-becb-408f-9370-ca6f8cf1aad8
 
-	measure 'invoice amount' = sum(invoices[amount])
-		formatString: #,0
-		lineageTag: c022d224-3f77-45f3-ada7-f4a6840f30cb
-
-		annotation PBI_FormatHint = {"isDecimal":true}
-
 	column invoice_id
 		dataType: string
 		lineageTag: e575da11-a35c-454a-99be-513fb1bf4289
@@ -31,30 +25,44 @@ table invoices
 
 		annotation SummarizationSetBy = Automatic
 
+	column customer_sk
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 3127725f-a3b9-4bb4-bb14-39bbc375e763
+		summarizeBy: none
+		sourceColumn: customer_sk
+
+		annotation SummarizationSetBy = Automatic
+
 	column invoice_date
-		dataType: string
+		dataType: dateTime
+		formatString: Short Date
 		lineageTag: f3d5aea0-4832-4d5b-93a1-286123b7ba6f
 		summarizeBy: none
 		sourceColumn: invoice_date
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column due_date
-		dataType: string
+		dataType: dateTime
+		formatString: Short Date
 		lineageTag: a5dd9e4f-8a34-457d-b8f0-93e9a8417528
 		summarizeBy: none
 		sourceColumn: due_date
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column amount
 		dataType: double
-		isHidden
+		formatString: #,0
 		lineageTag: b2ed5e6c-b602-4d2a-a46f-1804fa5c9654
 		summarizeBy: sum
 		sourceColumn: amount
-
-		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -82,10 +90,17 @@ table invoices
 				let
 				    Källa = Csv.Document(File.Contents("C:\repos\BuildCoBI\data\raw\invoices.csv"),[Delimiter=",", Columns=8, Encoding=1252, QuoteStyle=QuoteStyle.None]),
 				    #"Upphöjda rubriker" = Table.PromoteHeaders(Källa, [PromoteAllScalars=true]),
-				    #"Ersatt värde" = Table.ReplaceValue(#"Upphöjda rubriker",".",",",Replacer.ReplaceText,{"amount"}),
-				    #"Ändrad typ" = Table.TransformColumnTypes(#"Ersatt värde",{{"amount", type number}})
+				    #"Ändrad typ" = Table.TransformColumnTypes(#"Upphöjda rubriker",{{"amount", type number}, {"invoice_date", type date}, {"due_date", type date}}, "en-US"),
+				    #"Tillagd customer_sk" = Table.AddColumn(#"Ändrad typ", "customer_sk", (rad) =>
+				        let
+				            Träffar = Table.SelectRows(dim_customer_scd2, (d) =>
+				                d[customer_id] = rad[customer_id]
+				                and rad[invoice_date] >= d[valid_from]
+				                and (d[valid_to] = null or rad[invoice_date] <= d[valid_to]))
+				        in
+				            try Träffar{0}[customer_sk] otherwise null, Int64.Type)
 				in
-				    #"Ändrad typ"
+				    #"Tillagd customer_sk"
 
 	annotation PBI_ResultType = Table
 

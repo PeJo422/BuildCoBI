@@ -25,6 +25,22 @@ table projects
 
 		annotation SummarizationSetBy = Automatic
 
+	column customer_name
+		dataType: string
+		lineageTag: fcbe4c67-d327-46fa-9634-68091108601d
+		summarizeBy: none
+		sourceColumn: customer_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column segment
+		dataType: string
+		lineageTag: 25a0abfe-d1c7-4bbd-ba60-8db3cd869a6a
+		summarizeBy: none
+		sourceColumn: segment
+
+		annotation SummarizationSetBy = Automatic
+
 	column project_manager_id
 		dataType: string
 		lineageTag: a424e1ba-b7b7-4c1a-a8ac-6c791c9a6164
@@ -56,11 +72,6 @@ table projects
 		summarizeBy: none
 		sourceColumn: start_date
 
-		variation Variation
-			isDefault
-			relationship: 9ed7e753-e1a0-43ad-a785-6de4321ae336
-			defaultHierarchy: LocalDateTable_ca635c04-88ee-4150-9fc2-d98ae2f5aa91.Datumhierarki
-
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
@@ -71,11 +82,6 @@ table projects
 		lineageTag: 49b604dd-9fe9-473e-aea3-cebc63acb570
 		summarizeBy: none
 		sourceColumn: end_date
-
-		variation Variation
-			isDefault
-			relationship: d7401cc8-f0e6-4aa1-8b38-fe2f7340d5ae
-			defaultHierarchy: LocalDateTable_2723f81c-4dc8-458f-a03b-41a517ed4af5.Datumhierarki
 
 		annotation SummarizationSetBy = Automatic
 
@@ -104,9 +110,12 @@ table projects
 				let
 				    Källa = Csv.Document(File.Contents("C:\repos\BuildCoBI\data\raw\projects.csv"),[Delimiter=",", Columns=10, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 				    #"Upphöjda rubriker" = Table.PromoteHeaders(Källa, [PromoteAllScalars=true]),
-				    #"Ändrad typ" = Table.TransformColumnTypes(#"Upphöjda rubriker",{{"project_id", type text}, {"project_name", type text}, {"customer_id", type text}, {"project_manager_id", type text}, {"city", type text}, {"project_type", type text}, {"start_date", type date}, {"end_date", type date}, {"budget_amount", Int64.Type}, {"status", type text}})
+				    #"Ändrad typ" = Table.TransformColumnTypes(#"Upphöjda rubriker",{{"project_id", type text}, {"project_name", type text}, {"customer_id", type text}, {"project_manager_id", type text}, {"city", type text}, {"project_type", type text}, {"start_date", type date}, {"end_date", type date}, {"budget_amount", Int64.Type}, {"status", type text}}, "en-US"),
+				    KundNu = Table.Buffer(Table.SelectRows(dim_customer_scd2, each [is_current] = true)),
+				    #"Sammanslagen kund" = Table.NestedJoin(#"Ändrad typ", {"customer_id"}, KundNu, {"customer_id"}, "kund", JoinKind.LeftOuter),
+				    #"Utökad kund" = Table.ExpandTableColumn(#"Sammanslagen kund", "kund", {"customer_name", "segment"}, {"customer_name", "segment"})
 				in
-				    #"Ändrad typ"
+				    #"Utökad kund"
 
 	annotation PBI_ResultType = Table
 

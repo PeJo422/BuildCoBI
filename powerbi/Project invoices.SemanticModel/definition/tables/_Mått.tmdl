@@ -1,0 +1,96 @@
+table _Mått
+	lineageTag: 7b2e0c22-1e32-4b82-8a10-2b3c4d5e6f70
+
+	measure Fakturerat = SUM(invoices[amount])
+		formatString: #,0
+		lineageTag: 7b2e0c22-1e32-4b82-8a10-2b3c4d5e6f71
+
+	measure 'Antal fakturor' = DISTINCTCOUNT(invoices[invoice_id])
+		formatString: #,0
+		lineageTag: 7b2e0c22-1e32-4b82-8a10-2b3c4d5e6f72
+
+	measure Snittfaktura = DIVIDE([Fakturerat], [Antal fakturor])
+		formatString: #,0
+		lineageTag: 7b2e0c22-1e32-4b82-8a10-2b3c4d5e6f73
+
+	measure Kostnad = SUM(project_costs[amount])
+		formatString: #,0
+		lineageTag: 7b2e0c22-1e32-4b82-8a10-2b3c4d5e6f74
+
+	measure Budget = SUM(projects[budget_amount])
+		formatString: #,0
+		lineageTag: 7b2e0c22-1e32-4b82-8a10-2b3c4d5e6f75
+
+	measure Marginal = [Fakturerat] - [Kostnad]
+		formatString: #,0
+		lineageTag: 7b2e0c22-1e32-4b82-8a10-2b3c4d5e6f76
+
+	measure 'Budgetavvikelse %' = DIVIDE([Kostnad] - [Budget], [Budget])
+		formatString: 0.0%
+		lineageTag: 7b2e0c22-1e32-4b82-8a10-2b3c4d5e6f77
+
+	measure 'Antal projekt' = DISTINCTCOUNT(projects[project_id])
+		formatString: #,0
+		lineageTag: 7b2e0c22-1e32-4b82-8a10-2b3c4d5e6f78
+
+	measure Timmar = SUM(timesheets[hours])
+		formatString: #,0
+		lineageTag: 7b2e0c22-1e32-4b82-8a10-2b3c4d5e6f80
+
+	measure Personalkostnad = SUMX(timesheets, timesheets[hours] * RELATED(employees[hourly_cost]))
+		formatString: #,0
+		lineageTag: 7b2e0c22-1e32-4b82-8a10-2b3c4d5e6f81
+
+	measure 'Fakturerbart värde' = SUMX(timesheets, timesheets[hours] * RELATED(employees[hourly_rate]))
+		formatString: #,0
+		lineageTag: 7b2e0c22-1e32-4b82-8a10-2b3c4d5e6f82
+
+	measure 'Fakturerbara timmar' = CALCULATE(SUM(timesheets[hours]), timesheets[is_billable] = TRUE())
+		formatString: #,0
+		lineageTag: 7b2e0c22-1e32-4b82-8a10-2b3c4d5e6f83
+
+	measure Beläggningsgrad = DIVIDE([Fakturerbara timmar], [Timmar])
+		formatString: 0.0%
+		lineageTag: 7b2e0c22-1e32-4b82-8a10-2b3c4d5e6f84
+
+	measure 'Antal anställda' = DISTINCTCOUNT(timesheets[employee_id])
+		formatString: #,0
+		lineageTag: 7b2e0c22-1e32-4b82-8a10-2b3c4d5e6f85
+
+	measure 'Total kostnad' = [Kostnad] + [Personalkostnad]
+		formatString: #,0
+		lineageTag: 7b2e0c22-1e32-4b82-8a10-2b3c4d5e6f86
+
+	measure 'Total marginal' = [Fakturerat] - [Total kostnad]
+		formatString: #,0
+		lineageTag: 7b2e0c22-1e32-4b82-8a10-2b3c4d5e6f87
+
+	measure 'Fakturerat (endast aktuell kundversion)' = CALCULATE([Fakturerat], dim_customer_scd2[is_current] = TRUE())
+		formatString: #,0
+		lineageTag: 7b2e0c22-1e32-4b82-8a10-2b3c4d5e6f88
+
+	measure 'Antal kostnadsrader' = COUNTROWS(project_costs)
+		formatString: #,0
+		lineageTag: 7b2e0c22-1e32-4b82-8a10-2b3c4d5e6f89
+
+	measure 'Antal unika kostnads-id' = DISTINCTCOUNT(project_costs[cost_id])
+		formatString: #,0
+		lineageTag: 7b2e0c22-1e32-4b82-8a10-2b3c4d5e6f8a
+
+	column Value
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 7b2e0c22-1e32-4b82-8a10-2b3c4d5e6f79
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Mått = calculated
+		mode: import
+		source = {BLANK()}
+
+	annotation PBI_ResultType = Table
+

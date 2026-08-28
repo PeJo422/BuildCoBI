@@ -1,0 +1,171 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "e1matrix",
+  "position": {
+    "x": 196,
+    "y": 76,
+    "z": 0,
+    "height": 300,
+    "width": 600,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "projects"
+                    }
+                  },
+                  "Property": "project_name"
+                }
+              },
+              "queryRef": "projects.project_name",
+              "nativeQueryRef": "project_name",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Mått"
+                    }
+                  },
+                  "Property": "Antal kostnadsrader"
+                }
+              },
+              "queryRef": "_Mått.Antal kostnadsrader",
+              "nativeQueryRef": "Antal kostnadsrader",
+              "active": true
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Mått"
+                    }
+                  },
+                  "Property": "Antal unika kostnads-id"
+                }
+              },
+              "queryRef": "_Mått.Antal unika kostnads-id",
+              "nativeQueryRef": "Antal unika kostnads-id",
+              "active": false
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Mått"
+                    }
+                  },
+                  "Property": "Kostnad"
+                }
+              },
+              "queryRef": "_Mått.Kostnad",
+              "nativeQueryRef": "Kostnad",
+              "active": false
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Mått"
+                    }
+                  },
+                  "Property": "Budget"
+                }
+              },
+              "queryRef": "_Mått.Budget",
+              "nativeQueryRef": "Budget",
+              "active": false
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Mått"
+                  }
+                },
+                "Property": "Kostnad"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
+                }
+              }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1A1A19'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Kostnadsrader vs unika cost_id per projekt'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

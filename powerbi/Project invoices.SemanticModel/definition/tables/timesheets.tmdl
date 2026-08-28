@@ -1,0 +1,99 @@
+table timesheets
+	lineageTag: c82f5fa0-a88b-4f76-b21a-e64900189d3b
+
+	column timesheet_id
+		dataType: string
+		lineageTag: 32606790-a1cb-4fdb-ae27-75c659c0a841
+		summarizeBy: none
+		sourceColumn: timesheet_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		lineageTag: fc0f7f69-2391-422e-8539-8ec543d2ad58
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column employee_id
+		dataType: string
+		lineageTag: 4d059f6f-938b-49d7-b37a-4583120de767
+		summarizeBy: none
+		sourceColumn: employee_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column work_date
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 5ee0b4d0-56b9-422c-a599-f5d83cd99383
+		summarizeBy: none
+		sourceColumn: work_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column hours
+		dataType: int64
+		formatString: 0
+		lineageTag: c18566cf-39a9-4c25-896d-1f286d4e9e31
+		summarizeBy: sum
+		sourceColumn: hours
+
+		annotation SummarizationSetBy = Automatic
+
+	column activity
+		dataType: string
+		lineageTag: ab75ba0a-bb61-4ee5-96a3-024e0a846d4a
+		summarizeBy: none
+		sourceColumn: activity
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_billable
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 3a85f769-320b-4bae-87ff-1345cd22d3b8
+		summarizeBy: none
+		sourceColumn: is_billable
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_sk
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 192537ba-004c-454e-86ad-41367922873c
+		summarizeBy: none
+		sourceColumn: customer_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	partition timesheets = m
+		mode: import
+		source =
+				let
+				    Källa = Csv.Document(File.Contents("C:\repos\BuildCoBI\data\raw\timesheets.csv"),[Delimiter=",", Columns=7, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Upphöjda rubriker" = Table.PromoteHeaders(Källa, [PromoteAllScalars=true]),
+				    #"Ändrad typ" = Table.TransformColumnTypes(#"Upphöjda rubriker",{{"timesheet_id", type text}, {"project_id", type text}, {"employee_id", type text}, {"work_date", type date}, {"hours", Int64.Type}, {"activity", type text}, {"is_billable", type logical}}, "en-US"),
+				    ProjektBuffer = Table.Buffer(projects),
+				    DimBuffer = Table.Buffer(dim_customer_scd2),
+				    #"Tillagd customer_id" = Table.AddColumn(#"Ändrad typ", "customer_id", (rad) =>
+				        try Table.SelectRows(ProjektBuffer, (p) => p[project_id] = rad[project_id]){0}[customer_id] otherwise null, type text),
+				    #"Tillagd customer_sk" = Table.AddColumn(#"Tillagd customer_id", "customer_sk", (rad) =>
+				        let
+				            Träffar = Table.SelectRows(DimBuffer, (d) =>
+				                d[customer_id] = rad[customer_id]
+				                and rad[work_date] >= d[valid_from]
+				                and (d[valid_to] = null or rad[work_date] <= d[valid_to]))
+				        in
+				            try Träffar{0}[customer_sk] otherwise null, Int64.Type),
+				    #"Borttagen customer_id" = Table.RemoveColumns(#"Tillagd customer_sk", {"customer_id"})
+				in
+				    #"Borttagen customer_id"
+
+	annotation PBI_ResultType = Table
+

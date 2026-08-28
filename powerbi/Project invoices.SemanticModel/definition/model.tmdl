@@ -4,27 +4,24 @@ model Model
 	sourceQueryCulture: sv-SE
 	valueFilterBehavior: independent
 	dataAccessOptions
+		fastCombine
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation __PBI_TimeIntelligenceEnabled = 1
+annotation __PBI_TimeIntelligenceEnabled = 0
 
-annotation PBI_QueryOrder = ["customers","projects","project_costs","invoices","dim_customer_scd2"]
+annotation PBI_QueryOrder = ["dim_customer_scd2","employees","projects","project_costs","invoices","timesheets"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
-ref table customers
-ref table DateTableTemplate_0f87847c-1ce1-420b-a033-1b3a3def3673
-ref table LocalDateTable_740068dc-0983-4c4b-9b74-6d7b3e41cb39
 ref table projects
-ref table LocalDateTable_ca635c04-88ee-4150-9fc2-d98ae2f5aa91
-ref table LocalDateTable_2723f81c-4dc8-458f-a03b-41a517ed4af5
 ref table project_costs
-ref table LocalDateTable_47814214-5b5b-422e-98f1-f22784bbb3a7
 ref table invoices
 ref table dim_customer_scd2
-ref table LocalDateTable_fbb0c59a-d3bf-49cd-a54c-d207a9016cc8
-ref table LocalDateTable_fcfb8e0e-a831-4c7d-ba5a-65c34d1ff4a0
+ref table dim_date
+ref table employees
+ref table timesheets
+ref table _Mått
 
 ref cultureInfo sv-SE
 
